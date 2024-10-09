@@ -1,0 +1,5 @@
+echo "Running lint-staged before finishing commit"
+cd "$(dirname "$0")/.." && npx lint-staged --concurrent false
+
+echo "Running build"
+yarn build
