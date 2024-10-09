@@ -24,6 +24,11 @@ export default function ReactQueryProvider({
     onlineManager.setOnline(navigator.onLine);
   };
 
+  //  sometimes, the load event does not trigger on some browsers, that is why manually calling updateNetworkStatus on initial mount
+  React.useEffect(() => {
+    updateNetworkStatus();
+  }, []);
+
   React.useEffect(() => {
     window.addEventListener('load', updateNetworkStatus);
     window.addEventListener('online', updateNetworkStatus);
