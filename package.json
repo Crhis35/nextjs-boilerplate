@@ -10,13 +10,16 @@
     "lint": "next lint",
     "remove": "sst remove",
     "sst:deploy": "sst deploy",
-    "start": "next start"
+    "start": "next start",
+    "prepare": "husky"
   },
   "dependencies": {
     "@hookform/error-message": "^2.0.1",
     "@hookform/resolvers": "^3.9.0",
     "@reduxjs/toolkit": "^2.2.8",
+    "@tanstack/query-async-storage-persister": "^5.59.6",
     "@tanstack/react-query": "^5.59.0",
+    "@tanstack/react-query-persist-client": "^5.59.6",
     "@tanstack/react-table": "^8.20.5",
     "dayjs": "^1.11.13",
     "deepmerge": "^4.3.1",
@@ -27,6 +30,7 @@
     "next": "^14.2.15",
     "next-intl": "^3.20.0",
     "next-secure-headers": "^2.2.0",
+    "path-to-regexp": "^8.2.0",
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.53.0",
@@ -53,6 +57,7 @@
     "enquirer": "^2.4.1",
     "eslint": "^8",
     "eslint-config-next": "14.2.15",
+    "husky": "^9.1.6",
     "prettier": "^3.3.3",
     "typescript": "^5.5.4"
   }
