@@ -1,7 +1,5 @@
 import React from 'react';
 
-import NetInfo from '@react-native-community/netinfo';
-
 import { QueryClient, onlineManager } from '@tanstack/react-query';
 import { createAsyncStoragePersister } from '@tanstack/query-async-storage-persister';
 import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client';
@@ -21,15 +19,20 @@ export default function ReactQueryProvider({
 }: React.PropsWithChildren) {
   const [isOnline, setIsOnline] = React.useState(true);
 
+  const updateNetworkStatus = () => {
+    setIsOnline(navigator.onLine);
+    onlineManager.setOnline(navigator.onLine);
+  };
+
   React.useEffect(() => {
-    const unsubscribe = NetInfo.addEventListener(state => {
-      const status = !!state.isConnected;
-      setIsOnline(status);
-      onlineManager.setOnline(status);
-    });
+    window.addEventListener('load', updateNetworkStatus);
+    window.addEventListener('online', updateNetworkStatus);
+    window.addEventListener('offline', updateNetworkStatus);
 
     return () => {
-      unsubscribe();
+      window.removeEventListener('load', updateNetworkStatus);
+      window.removeEventListener('online', updateNetworkStatus);
+      window.removeEventListener('offline', updateNetworkStatus);
     };
   }, []);
 

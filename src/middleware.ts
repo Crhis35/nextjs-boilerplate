@@ -1,13 +1,7 @@
 import { NextResponse } from 'next/server';
 import createIntlMiddleware from 'next-intl/middleware';
 import type { NextRequest } from 'next/server';
-
-import { fetchAuthSession } from 'aws-amplify/auth/server';
-
-import { runWithAmplifyServerContext } from '@/common/hoc/amplify';
-import { locales, defaultLocale } from '@/common/navigation';
-import { getServerGraphQLClient } from '@/libs/common/api/client/gql/server-interceptor';
-import { useGetUserByCognitoIdQuery } from '@/libs/common/api/requests';
+import { locales, defaultLocale } from '@/libs/navigation';
 
 const authPages = [
   '/login',
@@ -44,40 +38,15 @@ export default async function middleware(request: NextRequest) {
     const isPublicPage = publicPathnameRegex.test(pathname);
     const isAuthPage = authPathnameRegex.test(pathname);
 
-    const response = NextResponse.next();
+    // const response = NextResponse.next();
 
-    const session = await runWithAmplifyServerContext({
-      nextServerContext: { request, response },
-      operation: async contextSpec => {
-        try {
-          return fetchAuthSession(contextSpec);
-        } catch (error) {
-          console.error('Error fetching auth session:', error);
-          return null;
-        }
-      },
-    });
-
-    console.log({
-      isPublicPage,
-      path: request.nextUrl.pathname,
-      locale,
-      token: session?.tokens?.idToken?.toString(),
-    });
-
-    const isAuthenticated = session?.tokens !== undefined;
+    const isAuthenticated = false;
 
     if (!isAuthenticated && !isPublicPage && pathname !== `/${locale}`) {
       const loginUrl = new URL(`/${locale}/login`, request.url);
       return NextResponse.redirect(loginUrl);
     } else if (isAuthenticated) {
-      const serverGqlClient = await getServerGraphQLClient();
-
-      const fetchUser = useGetUserByCognitoIdQuery.fetcher(serverGqlClient, {
-        cognitoId: session.tokens?.idToken?.payload.sub,
-      });
-
-      const { users } = await fetchUser().catch();
+      const users = {};
 
       if (users?.edges?.length === 0 && !isAuthPage) {
         const onboardingUrl = new URL(`/${locale}/onboarding`, request.url);
