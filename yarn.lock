@@ -2373,11 +2373,6 @@ detect-libc@^2.0.3:
   resolved "https://registry.yarnpkg.com/detect-libc/-/detect-libc-2.0.3.tgz#f0cd503b40f9939b894697d19ad50895e30cf700"
   integrity sha512-bwy0MGW55bG41VqxxypOsdSdGqLwXPI/focwgTYCFMbdUiBAxLg9CFzG08sz2aqzknwiX7Hkl0bQENjg8iLByw==
 
-dijkstrajs@^1.0.1:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/dijkstrajs/-/dijkstrajs-1.0.3.tgz#4c8dbdea1f0f6478bff94d9c49c784d623e4fc23"
-  integrity sha512-qiSlmBq9+BCdCA/L46dw8Uy93mloxsPSbwnm5yrKn2vMPiy8KyAskTF6zuV/j5BMsmOGZDPs7KjU+mjb670kfA==
-
 dir-glob@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/dir-glob/-/dir-glob-3.0.1.tgz#56dbf73d992a4a93ba1584f4534063fd2e41717f"
@@ -3964,12 +3959,10 @@ next-intl@^3.20.0:
     negotiator "^0.6.3"
     use-intl "^3.20.0"
 
-next-qrcode@^2.5.1:
-  version "2.5.1"
-  resolved "https://registry.yarnpkg.com/next-qrcode/-/next-qrcode-2.5.1.tgz#71575396cfffcc0f9d94e5635149b76f776a8c29"
-  integrity sha512-ibiS1+p+myjurC1obVIgo7UCjFhxm0SNYTkikahQVmnyzlfREOdUCf2f77Vbz6W6q2zfx5Eww2/20vbgkLNdLw==
-  dependencies:
-    qrcode "^1.5.3"
+next-secure-headers@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/next-secure-headers/-/next-secure-headers-2.2.0.tgz#d4eb1b00a424f811c1455d1288990a4aad3026af"
+  integrity sha512-C7OfZ9JdSJyYMz2ZBMI/WwNbt0qNjlFWX9afUp8nEUzbz6ez3JbeopdyxSZJZJAzVLIAfyk6n73rFpd4e22jRg==
 
 next@^14.2.15:
   version "14.2.15"
@@ -4297,11 +4290,6 @@ path-scurry@^1.10.1:
     lru-cache "^10.2.0"
     minipass "^5.0.0 || ^6.0.2 || ^7.0.0"
 
-path-to-regexp@^8.2.0:
-  version "8.2.0"
-  resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-8.2.0.tgz#73990cc29e57a3ff2a0d914095156df5db79e8b4"
-  integrity sha512-TdrF7fW9Rphjq4RjrW0Kp2AW0Ahwu9sRGTkS6bvDi0SCwZlEZYmcfDbEsTz8RVk0EHIS/Vd1bv3JhG+1xZuAyQ==
-
 path-type@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/path-type/-/path-type-4.0.0.tgz#84ed01c0a7ba380afe09d90a8c180dcd9d03043b"
@@ -4316,11 +4304,6 @@ picomatch@^2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.3.1.tgz#3ba3833733646d9d3e4995946c1365a67fb07a42"
   integrity sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==
-
-pngjs@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/pngjs/-/pngjs-5.0.0.tgz#e79dd2b215767fd9c04561c01236df960bce7fbb"
-  integrity sha512-40QW5YalBNfQo5yRYmiw7Yz6TKKVr3h6970B2YE+3fQpsWcrbj1PzJgxeJ19DRQjhMbKPIuMY8rFaXc8moolVw==
 
 possible-typed-array-names@^1.0.0:
   version "1.0.0"
@@ -4371,15 +4354,6 @@ punycode@^2.1.0:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.3.1.tgz#027422e2faec0b25e1549c3e1bd8309b9133b6e5"
   integrity sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==
-
-qrcode@^1.5.3:
-  version "1.5.4"
-  resolved "https://registry.yarnpkg.com/qrcode/-/qrcode-1.5.4.tgz#5cb81d86eb57c675febb08cf007fff963405da88"
-  integrity sha512-1ca71Zgiu6ORjHqFBDpnSMTR2ReToX4l1Au1VFLyVeBTFavzQnv5JxMFr3ukHVKpSrSA2MCk0lNJSykjUfz7Zg==
-  dependencies:
-    dijkstrajs "^1.0.1"
-    pngjs "^5.0.0"
-    yargs "^15.3.1"
 
 queue-microtask@^1.2.2:
   version "1.2.3"
@@ -4802,45 +4776,45 @@ sponge-case@^1.0.1:
   dependencies:
     tslib "^2.0.3"
 
-sst-darwin-arm64@3.1.71:
-  version "3.1.71"
-  resolved "https://registry.yarnpkg.com/sst-darwin-arm64/-/sst-darwin-arm64-3.1.71.tgz#c5bdfd6e18272cdf9f95fb7d6faa8d860e927ae1"
-  integrity sha512-SZyWekD5RjjUYi6Ehj07nx5pgS2/AGku/kLvbH1cg1FeawR37Z9eyde0S4Vj05fjFha5FN5nBfrPv30XUjSOhw==
+sst-darwin-arm64@3.1.73:
+  version "3.1.73"
+  resolved "https://registry.yarnpkg.com/sst-darwin-arm64/-/sst-darwin-arm64-3.1.73.tgz#165dad2c79cbaa5f288ad95dd2ab56b9d47243da"
+  integrity sha512-LeamWJdbhNpTAc0efkzYzwHbuPDK+hnAhjqi+79SyzkrfaLIZnC1C2+0CqtmLXgna8aE2gs4MBErMi+c5j/T0w==
 
-sst-darwin-x64@3.1.71:
-  version "3.1.71"
-  resolved "https://registry.yarnpkg.com/sst-darwin-x64/-/sst-darwin-x64-3.1.71.tgz#0bf386b3a039af370860307b75d60f1e106173e6"
-  integrity sha512-HwhIDie45jpEaAeCdc//qvStfm0C2DJpr0VbUbC8XZtg2cvdevdn02qNH57Db2/louzASTjLZ+CpGu6bVBA+9w==
+sst-darwin-x64@3.1.73:
+  version "3.1.73"
+  resolved "https://registry.yarnpkg.com/sst-darwin-x64/-/sst-darwin-x64-3.1.73.tgz#9a8700894f6d1e0c57721ea780a71dfa43390d0a"
+  integrity sha512-b8O3TgxjwxfRUtax4ZM1SHAhQjxDzPaL1ApKriqrXP0JNQDBhUOi2ojMEX5qGicEVdHOe5MfZ/S4ZKUiKHkFFQ==
 
-sst-linux-arm64@3.1.71:
-  version "3.1.71"
-  resolved "https://registry.yarnpkg.com/sst-linux-arm64/-/sst-linux-arm64-3.1.71.tgz#bf0156d17f34a2163abc3ca48b873943c853b176"
-  integrity sha512-7r4RjHUbsxgOxenl+s6pLxS7N7VIdyqPPlAQeIcjekxqblM/mpiKbfHHDEEv1ukjf8WYnoFb4A7gLunnrPGSwQ==
+sst-linux-arm64@3.1.73:
+  version "3.1.73"
+  resolved "https://registry.yarnpkg.com/sst-linux-arm64/-/sst-linux-arm64-3.1.73.tgz#e1239e7926e3b294ee67e02a5f18df4c3084cee1"
+  integrity sha512-O3KcLDJTHwg4i9wDQo9tazwwXsbqAUCxPJIdGwv9DLmynM4Khss2QC66Sg7r9noaq2Ekr2pzGsTmkuywjQjG2A==
 
-sst-linux-x64@3.1.71:
-  version "3.1.71"
-  resolved "https://registry.yarnpkg.com/sst-linux-x64/-/sst-linux-x64-3.1.71.tgz#3c05be514506a2b364cd64e2d0eb8bc9702df844"
-  integrity sha512-FXzS8ze32dEwjzbPCxwXnIEqEWkQHXt3qm2UspJShMdlejp0vXDjZjPjHnwLji0tSqXh2DPG4tMLirHe8hgrNQ==
+sst-linux-x64@3.1.73:
+  version "3.1.73"
+  resolved "https://registry.yarnpkg.com/sst-linux-x64/-/sst-linux-x64-3.1.73.tgz#10b6f77845f62c5b5011c43c8d6df1448f67d455"
+  integrity sha512-y7RfXzuKN5tXIg0jguuSdEqQlHEutWjUSKrt45fCvrP02yU4CoJz2dOJuht47jpetjV3zMB4H4ihkxVG5Qgfbw==
 
-sst-linux-x86@3.1.71:
-  version "3.1.71"
-  resolved "https://registry.yarnpkg.com/sst-linux-x86/-/sst-linux-x86-3.1.71.tgz#39a8e5ed944f43602c6089a002a31eadffb4baee"
-  integrity sha512-SfvvgBPSdPGspHTiqQHo1VUusRIOA36dTL2kd/2BbqojATV7oVqP18sutqFIKVOG0OnPUombAQbSnZ/SyiviVA==
+sst-linux-x86@3.1.73:
+  version "3.1.73"
+  resolved "https://registry.yarnpkg.com/sst-linux-x86/-/sst-linux-x86-3.1.73.tgz#f603a9c3448e2c0cf44f733ac40da5a0c79c203a"
+  integrity sha512-ZrwddARZNkQY4nRfRw6rY/gjzQ6IkfUPbCAD0ygbFBfXAra33MjHD+6hi5lde8BTe3DBTt1CLtujwYNjrBSKyw==
 
-sst@3.1.71:
-  version "3.1.71"
-  resolved "https://registry.yarnpkg.com/sst/-/sst-3.1.71.tgz#fdd3a78e6dfeca275fc6ec7b82e3546b465ff8c1"
-  integrity sha512-3Tk5L3dvlbUjuM8BeteNhYyfJfkk/88BzzfUGq+QYZN2kSjflMxsnDAow9lKfjbsTAvGVio03oJ2r6D2o5l1YQ==
+sst@3.1.73:
+  version "3.1.73"
+  resolved "https://registry.yarnpkg.com/sst/-/sst-3.1.73.tgz#17fbda3f723c97266f9f9e729a9b7ec09b44a6f6"
+  integrity sha512-9Dsyswx35UGMTeTy12jDXA2BLHEqkBnHRQYtfuw8gviroePk6U934RP1S5eIBh1HRF3EijStmG0s2ydNYDvEVQ==
   dependencies:
     aws4fetch "^1.0.18"
     jose "5.2.3"
     openid-client "5.6.4"
   optionalDependencies:
-    sst-darwin-arm64 "3.1.71"
-    sst-darwin-x64 "3.1.71"
-    sst-linux-arm64 "3.1.71"
-    sst-linux-x64 "3.1.71"
-    sst-linux-x86 "3.1.71"
+    sst-darwin-arm64 "3.1.73"
+    sst-darwin-x64 "3.1.73"
+    sst-linux-arm64 "3.1.73"
+    sst-linux-x64 "3.1.73"
+    sst-linux-x86 "3.1.73"
 
 stop-iteration-iterator@^1.0.0:
   version "1.0.0"
