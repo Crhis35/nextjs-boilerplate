@@ -1,5 +1,5 @@
 ---
-to: src/libs/common/components/ui/<%= directory %>/<%= h.changeCase.kebabCase(name) %>/<%= h.changeCase.kebabCase(name) %>.stories.tsx
+to: src/ui/components/common/<%= directory %>/<%= h.changeCase.kebabCase(name) %>/<%= h.changeCase.kebabCase(name) %>.stories.tsx
 ---
 import { Meta, StoryObj } from '@storybook/react';
 import <%= h.changeCase.pascal(name) %> from './<%= h.changeCase.kebabCase(name) %>';

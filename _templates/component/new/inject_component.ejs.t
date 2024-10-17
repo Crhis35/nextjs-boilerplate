@@ -1,5 +1,5 @@
 ---
-to: src/libs/common/components/ui/<%= directory %>/index.ts
+to: src/ui/components/common/<%= directory %>/index.ts
 inject: true
 append: true
 ---
