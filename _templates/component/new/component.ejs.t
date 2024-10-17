@@ -1,5 +1,5 @@
 ---
-to: src/libs/common/components/ui/<%= directory %>/<%= h.changeCase.kebabCase(name) %>/<%= h.changeCase.kebabCase(name) %>.tsx
+to: src/ui/components/common/<%= directory %>/<%= h.changeCase.kebabCase(name) %>/<%= h.changeCase.kebabCase(name) %>.tsx
 ---
 import React from 'react';
 import { <%= h.changeCase.pascal(name) %>Props } from './<%= h.changeCase.kebabCase(name) %>.model';
