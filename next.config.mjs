@@ -4,7 +4,6 @@ import { createSecureHeaders } from 'next-secure-headers';
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
   async headers() {
     // todo: Please note: it is still experimental, so
     // todo: NEXT_PUBLIC_CSP_XSS is "false" by default
@@ -87,12 +86,6 @@ const nextConfig = {
   //
   typescript: { ignoreBuildErrors: false },
   eslint: { ignoreDuringBuilds: false },
-  experimental: {
-    serverComponentsExternalPackages: [
-      '@aws-amplify/adapter-nextjs',
-      'aws-amplify',
-    ],
-  },
 };
 
 const withNextIntl = createNextIntlPlugin(
