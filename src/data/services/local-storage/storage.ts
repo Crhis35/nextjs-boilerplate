@@ -1,6 +1,6 @@
 import { CustomStorage } from 'data/models/storage';
 
-const storage = localStorage;
+const storage = globalThis?.localStorage;
 
 /**
  * Adapter class to interact with local storage, providing
@@ -15,7 +15,7 @@ export class LocalStorageAdapter implements CustomStorage {
    * @param {unknown} value - The value to store. If falsy, the key is deleted.
    * @returns {void}
    */
-  set(key: string, value: string): void {
+  set(key: string, value?: string): void {
     if (value) {
       storage.setItem(key, value);
     } else {

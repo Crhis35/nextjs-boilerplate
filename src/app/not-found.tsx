@@ -4,7 +4,7 @@ export const dynamic = 'force-dynamic';
 
 export default function NotFound() {
   return (
-    <div className="p-5 flex justify-content-center align-items-center h-full">
+    <div>
       <div>
         <h1>Página no encontrada</h1>
         <p>

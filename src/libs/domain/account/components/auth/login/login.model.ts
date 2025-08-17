@@ -1,10 +1,9 @@
-import { z } from 'zod'
-import { zfd } from 'zod-form-data'
+import { z } from 'zod';
 
-import { passwordZod } from '@/libs/common/utils/string'
+import { passwordZod } from '@/libs/utils/string';
 
-export const validateSchema = zfd.formData({
-	email: zfd.text(z.string().email()),
-	password: zfd.text(passwordZod),
-})
-export type LoginFormModel = z.infer<typeof validateSchema>
+export const validateSchema = z.object({
+  email: z.email(),
+  password: passwordZod,
+});
+export type LoginFormModel = z.infer<typeof validateSchema>;

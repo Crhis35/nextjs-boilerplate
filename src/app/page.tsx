@@ -4,5 +4,6 @@ import { defaultLocale } from '@/libs/navigation';
 export const dynamic = 'force-dynamic';
 
 export default function RootPage() {
+  console.log({ defaultLocale });
   redirect(defaultLocale);
 }

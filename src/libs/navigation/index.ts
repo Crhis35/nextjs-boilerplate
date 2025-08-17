@@ -1,34 +1,54 @@
-import { createSharedPathnamesNavigation } from 'next-intl/navigation'
+import { createNavigation } from 'next-intl/navigation';
+import { defineRouting } from 'next-intl/routing';
 
-// export const defaultLocale = "en-us";
-export const defaultLocale = 'en-us' as const
+export const defaultLocale = 'es' as const;
+export const locales = ['en', 'es'] as const;
 
-// Supported locales.
-export const locales = ['en-us', 'es-es'] as const
-
-// Labels for each supported locale, used for displaying human-readable names.
 export const labels = {
-	'en-us': 'English',
-	'es-es': 'Spanish',
-} as const
+  en: 'English',
+  es: 'Spanish',
+} as const;
 
-// Type representing valid locale strings.
-export type Locale = (typeof locales)[number]
+export type Locale = (typeof locales)[number];
 
-// Ensure every locale has a label.
 if (process.env.NODE_ENV === 'development') {
-	// biome-ignore lint/complexity/noForEach: <explanation>
-	locales.forEach((locale) => {
-		if (!labels[locale]) {
-			console.warn(`No label found for locale: ${locale}`)
-		}
-	})
+  locales.forEach(locale => {
+    if (!labels[locale]) {
+      console.warn(`No label found for locale: ${locale}`);
+    }
+  });
 }
 
-// Navigation utilities configured for the defined locales.
-export const { Link, redirect, usePathname, useRouter } =
-	createSharedPathnamesNavigation({ locales })
+const pathnames = {
+  '/home': '/',
+} as const;
 
-export * from './navigation'
-export * from './navigation.model'
-export * from './navigation.util'
+export const routing = defineRouting({
+  locales,
+  defaultLocale,
+  pathnames,
+  localePrefix: 'always',
+});
+
+export const { Link, redirect, usePathname, useRouter } =
+  createNavigation(routing);
+
+type DynamicRouteParams<T extends string> =
+  T extends `${string}[${infer Param}]${string}`
+    ? { [K in Param]: string }
+    : never;
+
+type StaticPathname = keyof typeof pathnames;
+
+export type PathNames =
+  | Exclude<StaticPathname, `${string}[${string}]${string}`>
+  | {
+      pathname: Extract<StaticPathname, `${string}[${string}]${string}`>;
+      params: DynamicRouteParams<
+        Extract<StaticPathname, `${string}[${string}]${string}`>
+      >;
+    };
+
+export * from './navigation';
+export * from './navigation.model';
+export * from './navigation.util';

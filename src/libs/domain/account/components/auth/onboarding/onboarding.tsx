@@ -45,13 +45,11 @@ export default function AccountOnboarding() {
         <input
           name="name"
           type="text"
-          label={t('inputs.name.label')}
           placeholder={t('inputs.name.placeholder')}
         />
         <input
           name="lastName"
           type="text"
-          label={t('inputs.lastName.label')}
           placeholder={t('inputs.lastName.placeholder')}
         />
 

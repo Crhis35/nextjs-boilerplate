@@ -240,7 +240,6 @@ export default function AccountMe() {
                   <InputField
                     name="name"
                     type="text"
-                    label={t('inputs.name.label')}
                     placeholder={t('inputs.name.placeholder')}
                   />
                   <InputField

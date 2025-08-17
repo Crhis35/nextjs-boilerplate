@@ -49,15 +49,15 @@ export default function AccountLogin() {
       <form>
         <h2>Welcome back!</h2>
         <h3>
-          Do not have an account yet? <span href="/signup">Create account</span>
+          Do not have an account yet? <a href="/signup">Create account</a>
         </h3>
         <div>
-          <input label="Email" name="email" type="text" required />
-          <input label="Password" name="password" type="password" required />
+          <input name="email" type="text" required />
+          <input name="password" type="password" required />
 
           <div>
-            <input type="checkbox" label="Remember me" />
-            <span href="/recovery">Forgot password?</span>
+            <input type="checkbox" />
+            <a href="/recovery">Forgot password?</a>
           </div>
           <button disabled={!isValid} onClick={handleSubmit(handleSignIn)}>
             Sign in

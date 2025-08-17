@@ -1,13 +1,12 @@
 import { z } from 'zod';
-import { zfd } from 'zod-form-data';
 
-import { passwordZod } from '@/libs/common/utils/string';
+import { passwordZod } from '@/libs/utils/string';
 
-export const validateSchema = zfd
-  .formData({
-    email: zfd.text(z.string().email()),
-    password: zfd.text(passwordZod),
-    confirmPassword: zfd.text(passwordZod),
+export const validateSchema = z
+  .object({
+    email: z.email(),
+    password: passwordZod,
+    confirmPassword: passwordZod,
   })
   .refine(data => data.password === data.confirmPassword, {
     message: 'Password does not match',
