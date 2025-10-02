@@ -9,8 +9,6 @@ import { Anchor, Paper, Title, Text, Button, Center } from '@mantine/core';
 import { FormProvider, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 
-import { AuthError, signUp } from 'aws-amplify/auth';
-
 import { InputField } from '@/libs/common/components/form';
 import { SignUpFormModel, validateSchema } from './sign-up.model';
 

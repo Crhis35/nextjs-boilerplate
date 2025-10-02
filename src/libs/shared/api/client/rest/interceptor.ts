@@ -1,6 +1,6 @@
-import axios from 'axios';
+import xior from 'xior';
 import { appConfig } from 'config/app-config';
 
-export const restClient = axios.create({
+export const restClient = xior.create({
   baseURL: appConfig.apiUrl,
 });

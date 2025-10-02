@@ -1,0 +1,33 @@
+.container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.box {
+  position: absolute;
+  border: 2px solid;
+  animation: pulse-glow 1.5s ease-in-out infinite;
+}
+
+.label {
+  position: absolute;
+  top: -24px;
+  left: 0;
+  padding: 2px 8px;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.8);
+  white-space: nowrap;
+}
+
+/* Simple pulse animation */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 12px rgba(255, 255, 255, 1);
+  }
+}

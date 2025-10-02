@@ -1,3 +1,9 @@
+import Home from '@/libs/domain/dashboard/components/home/home';
+
 export default function Page() {
-  return <main>page</main>;
+  return (
+    <main>
+      <Home />
+    </main>
+  );
 }

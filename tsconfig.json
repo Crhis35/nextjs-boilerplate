@@ -1,10 +1,6 @@
 {
   "compilerOptions": {
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -22,39 +18,20 @@
       }
     ],
     "paths": {
-      "@/*": [
-        "./src/*"
-      ],
-      "ui/*": [
-        "./src/ui/*"
-      ],
-      "constants/*": [
-        "./src/constants/*"
-      ],
-      "config/*": [
-        "./src/config/*"
-      ],
-      "data/*": [
-        "./src/data/*"
-      ],
-      "libs/*": [
-        "./src/libs/*"
-      ],
-      "types/*": [
-        "./src/types/*"
-      ]
+      "@/*": ["./src/*"],
+      "@atoms": ["./src/ui/components/common/atoms"],
+      "@molecules": ["./src/ui/components/common/molecules"],
+      "@organisms": ["./src/ui/components/common/organisms"],
+      "@templates": ["./src/ui/components/common/templates"],
+      "ui/*": ["./src/ui/*"],
+      "constants/*": ["./src/constants/*"],
+      "config/*": ["./src/config/*"],
+      "data/*": ["./src/data/*"],
+      "libs/*": ["./src/libs/*"],
+      "types/*": ["./src/types/*"]
     },
     "target": "ES2017"
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "sst.config.ts",
-    "sst.config.ts"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules", "sst.config.ts", "sst.config.ts"]
 }
