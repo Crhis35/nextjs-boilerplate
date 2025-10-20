@@ -5,6 +5,7 @@ import { getMessages, getLocale } from 'next-intl/server';
 
 import {
   ColorSchemeScript,
+  MantineColorsTuple,
   MantineProvider,
   createTheme,
   mantineHtmlProps,
@@ -16,6 +17,7 @@ import { ReactQueryProvider } from '@/libs/shared/providers/query-client';
 import { NextIntlProvider } from '@/libs/shared/providers/i18n';
 
 import '@mantine/core/styles.css';
+import './global.css';
 
 export const metadata: Metadata = generateMetadata({
   path: '/',
@@ -28,21 +30,30 @@ interface RootLayoutProps {
   params: { locale: string };
 }
 
-const theme = createTheme({
-  primaryColor: 'blue',
+const darkBlue: MantineColorsTuple = [
+  '#ebf2ff', // 50
+  '#dbe5ff', // 100
+  '#becfff', // 200
+  '#97afff', // 300
+  '#6f82ff', // 400
+  '#4d57ff', // 500
+  '#322dfe', // 600
+  '#2921e1', // 700
+  '#221eb4', // 800
+  '#21218e', // 900
+];
+
+export const theme = createTheme({
   colors: {
-    dark: [
-      '#C1C2C5',
-      '#A6A7AB',
-      '#909296',
-      '#5c5f66',
-      '#373A40',
-      '#2C2E33',
-      '#25262b',
-      '#1A1B1E',
-      '#141517',
-      '#101113',
-    ],
+    'dark-blue': darkBlue,
+  },
+  primaryColor: 'dark-blue',
+  primaryShade: 6, // This corresponds to the 600 shade (#322dfe)
+  other: {
+    background: '#f8f9fa', // light mode bg
+    backgroundDark: '#0a0e1a', // dark mode bg
+    bgSecondary: '#111827',
+    bgTertiary: '#1a2234',
   },
 });
 

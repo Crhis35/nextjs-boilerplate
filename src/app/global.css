@@ -1,0 +1,9 @@
+:root {
+  @mixin light-root {
+    --mantine-color-body: #f9f9f9;
+  }
+
+  @mixin dark-root {
+    --mantine-color-body: #0a0e1a;
+  }
+}

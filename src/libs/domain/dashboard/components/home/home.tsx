@@ -7,7 +7,6 @@ import {
   Title,
   Text,
   Table,
-  Box,
   ScrollArea,
   Stack,
 } from '@mantine/core';
@@ -159,7 +158,6 @@ export default function Home() {
       fluid
       style={{
         minHeight: '100vh',
-        background: 'var(--mantine-color-dark-8)',
         padding: '1rem',
       }}
     >

@@ -37,12 +37,7 @@ export default function ControlPanel(props: ControlPanelProps) {
   return (
     <Stack gap="md">
       {/* Drone Selection */}
-      <Card
-        shadow="sm"
-        padding="lg"
-        radius="md"
-        style={{ background: 'var(--mantine-color-dark-6)' }}
-      >
+      <Card shadow="sm" padding="lg" radius="md">
         <Group gap="xs" mb="md">
           <IconPlane size={20} color="var(--mantine-color-blue-4)" />
           <Title order={4} c="gray.0">
