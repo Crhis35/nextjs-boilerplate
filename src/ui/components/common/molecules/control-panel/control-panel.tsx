@@ -39,7 +39,7 @@ export default function ControlPanel(props: ControlPanelProps) {
       {/* Drone Selection */}
       <Card shadow="sm" padding="lg" radius="md">
         <Group gap="xs" mb="md">
-          <IconPlane size={20} color="var(--mantine-color-blue-4)" />
+          <IconPlane size={20} color="var(--mantine-color-dark-blue-4)" />
           <Title order={4} c="gray.0">
             Seleccionar Dron
           </Title>
@@ -55,16 +55,6 @@ export default function ControlPanel(props: ControlPanelProps) {
               leftSection={<IconPlane size={16} />}
               rightSection={<StatusIndicator status={drone.status} />}
               onClick={() => onSelectDrone(drone.id)}
-              style={{
-                background:
-                  selectedDrone?.id === drone.id
-                    ? 'var(--mantine-color-blue-6)'
-                    : 'transparent',
-                border:
-                  selectedDrone?.id === drone.id
-                    ? '1px solid var(--mantine-color-blue-6)'
-                    : '1px solid var(--mantine-color-dark-4)',
-              }}
             >
               {drone.name}
             </Button>
@@ -94,7 +84,7 @@ export default function ControlPanel(props: ControlPanelProps) {
                     color={`var(--mantine-color-${getBatteryColor(selectedDrone.battery)}-4)`}
                   />
                   <Text size="sm" fw={500} c="gray.0">
-                    Battery
+                    Batería
                   </Text>
                 </Group>
                 <Text
@@ -117,12 +107,12 @@ export default function ControlPanel(props: ControlPanelProps) {
             {/* Altitude */}
             <Group justify="space-between">
               <Group gap="xs">
-                <IconGauge size={16} color="var(--mantine-color-blue-4)" />
+                <IconGauge size={16} color="var(--mantine-color-dark-blue-4)" />
                 <Text size="sm" fw={500} c="gray.0">
-                  Altitude
+                  Altitud
                 </Text>
               </Group>
-              <Badge variant="outline" color="blue">
+              <Badge variant="outline" color="dark-blue">
                 {selectedDrone.altitude}m
               </Badge>
             </Group>
@@ -130,9 +120,12 @@ export default function ControlPanel(props: ControlPanelProps) {
             {/* Location */}
             <Group justify="space-between">
               <Group gap="xs">
-                <IconMapPin size={16} color="var(--mantine-color-blue-4)" />
+                <IconMapPin
+                  size={16}
+                  color="var(--mantine-color-dark-blue-4)"
+                />
                 <Text size="sm" fw={500} c="gray.0">
-                  Location
+                  Ubicación
                 </Text>
               </Group>
               <Text
@@ -153,7 +146,7 @@ export default function ControlPanel(props: ControlPanelProps) {
             {/* Controls */}
             <div>
               <Text size="sm" fw={600} mb="xs" c="gray.0">
-                Controls
+                Controles
               </Text>
               <Group gap="xs">
                 <Button
@@ -168,7 +161,7 @@ export default function ControlPanel(props: ControlPanelProps) {
                   }}
                 >
                   <IconPlayerPlay size={16} />
-                  <Text size="xs">Start</Text>
+                  <Text size="xs">Empezar</Text>
                 </Button>
                 <Button
                   size="xs"
@@ -182,7 +175,7 @@ export default function ControlPanel(props: ControlPanelProps) {
                   }}
                 >
                   <IconPlayerPause size={16} />
-                  <Text size="xs">Pause</Text>
+                  <Text size="xs">Pausar</Text>
                 </Button>
                 <Button
                   size="xs"
@@ -196,7 +189,7 @@ export default function ControlPanel(props: ControlPanelProps) {
                   }}
                 >
                   <IconSquare size={16} />
-                  <Text size="xs">Stop</Text>
+                  <Text size="xs">Detener</Text>
                 </Button>
               </Group>
             </div>

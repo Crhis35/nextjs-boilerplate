@@ -85,7 +85,7 @@ export default function AuthAppBar(
         <Group>
           <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
           <Text fw={600} size="lg" c={theme.primaryColor}>
-            MyApp
+            Logo
           </Text>
         </Group>
 

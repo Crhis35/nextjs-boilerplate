@@ -12,7 +12,7 @@ export default function StatusIndicator(props: StatusIndicatorProps) {
       case 'connected':
         return 'green';
       case 'mission':
-        return 'blue';
+        return 'dark-blue';
       case 'disconnected':
         return 'red';
       default:
