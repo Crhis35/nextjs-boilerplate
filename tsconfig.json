@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "types": ["next-auth"],
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -19,6 +20,7 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
+      "@auth": ["./auth.ts"],
       "@atoms": ["./src/ui/components/common/atoms"],
       "@molecules": ["./src/ui/components/common/molecules"],
       "@organisms": ["./src/ui/components/common/organisms"],
@@ -32,6 +34,12 @@
     },
     "target": "ES2017"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/types/**/*.d.ts"
+  ],
   "exclude": ["node_modules", "sst.config.ts", "sst.config.ts"]
 }

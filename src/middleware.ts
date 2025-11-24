@@ -1,15 +1,20 @@
 import { NextResponse } from 'next/server';
 import createIntlMiddleware from 'next-intl/middleware';
 import type { NextRequest } from 'next/server';
+
+import { auth } from '@auth';
+
 import { locales, defaultLocale, routing } from '@/libs/navigation';
 
-const publicPages = ['/'];
+const publicPages = ['/login'];
 
 const intlMiddleware = createIntlMiddleware(routing);
 
 export default async function middleware(request: NextRequest) {
   const locale = request.cookies.get('NEXT_LOCALE')?.value || defaultLocale;
   const pathname = request.nextUrl.pathname || '/';
+
+  const session = await auth();
 
   // Regular expressions to verify if the route is public or authentication.
   const publicPathnameRegex = new RegExp(
@@ -23,10 +28,10 @@ export default async function middleware(request: NextRequest) {
 
   // const response = NextResponse.next();
 
-  const isAuthenticated = true;
+  const isAuthenticated = session?.user;
 
-  if (!isAuthenticated && !isPublicPage && pathname !== `/${locale}`) {
-    const loginUrl = new URL(`/${locale}/`, request.url);
+  if (!isAuthenticated && !isPublicPage) {
+    const loginUrl = new URL(`/${locale}/login`, request.url);
     return NextResponse.redirect(loginUrl);
   }
 

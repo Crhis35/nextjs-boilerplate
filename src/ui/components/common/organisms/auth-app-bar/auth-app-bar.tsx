@@ -28,9 +28,13 @@ import {
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 
+import { signOut, useSession } from 'next-auth/react';
+
 import { LinksGroup } from '@molecules';
 import { AuthAppBarProps } from './auth-app-bar.model';
 import classes from './auth-app-bar.module.css';
+import { useRouter } from 'next/navigation';
+import { capitalizeFirstLetter } from '@/libs/utils/string';
 
 const mockdata = [
   { label: 'Dashboard', icon: IconGauge },
@@ -58,10 +62,21 @@ const mockdata = [
 export default function AuthAppBar(
   props: React.PropsWithChildren<AuthAppBarProps>,
 ) {
+  const router = useRouter();
+  const { data: session } = useSession();
   const links = mockdata.map(item => <LinksGroup {...item} key={item.label} />);
   const [opened, { toggle }] = useDisclosure();
 
   const theme = useMantineTheme();
+
+  const logout = async () => {
+    try {
+      await signOut();
+      router.refresh();
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <AppShell
@@ -107,7 +122,7 @@ export default function AuthAppBar(
               <Group gap={6}>
                 <Avatar radius="xl" size={30} src={null} alt="User" />
                 <Text size="sm" fw={500}>
-                  John Doe
+                  {capitalizeFirstLetter(session?.user.usuario || '')}
                 </Text>
                 <IconChevronDown size={16} />
               </Group>
@@ -115,15 +130,16 @@ export default function AuthAppBar(
 
             <Menu.Dropdown>
               <Menu.Label>Cuenta</Menu.Label>
+              <Menu.Label>{session?.user.email}</Menu.Label>
               <Menu.Item leftSection={<IconSettings size={16} />}>
                 Ajustes
               </Menu.Item>
               <Menu.Item
                 color="red"
                 leftSection={<IconLogout size={16} />}
-                onClick={() => console.log('Logout clicked')}
+                onClick={logout}
               >
-                Logout
+                Cerrar sesión
               </Menu.Item>
             </Menu.Dropdown>
           </Menu>

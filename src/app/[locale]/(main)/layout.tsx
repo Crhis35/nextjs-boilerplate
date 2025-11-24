@@ -1,5 +1,10 @@
 import { AuthAppBar } from '@organisms';
+import { SessionProvider } from 'next-auth/react';
 
 export default function AuthLayout(props: React.PropsWithChildren) {
-  return <AuthAppBar>{props.children}</AuthAppBar>;
+  return (
+    <SessionProvider>
+      <AuthAppBar>{props.children}</AuthAppBar>
+    </SessionProvider>
+  );
 }

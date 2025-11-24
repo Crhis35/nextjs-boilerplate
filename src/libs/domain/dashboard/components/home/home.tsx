@@ -13,6 +13,7 @@ import {
 
 import { DroneVideoFeed } from '@organisms';
 import { ControlPanel, DetectionSummary } from '@molecules';
+import { restClient } from '@/libs/shared/api/client';
 
 export interface DroneData {
   id: string;
@@ -115,18 +116,14 @@ export default function Home() {
     setEnlargedDrone(enlargedDrone === droneId ? null : droneId);
   };
 
-  console.log({ enlargedDrone });
-
   const selectedDroneData = drones.find(drone => drone.id === selectedDrone);
 
   useEffect(() => {
     (async () => {
       try {
-        const req = await fetch(
-          'http://68.183.57.162:8000/panel-de-control/vehiculos',
-        );
+        const req = await restClient.get<VehiclesResponse>('/panel-de-control/vehiculos');
 
-        const data = (await req.json()) as VehiclesResponse;
+        const data = req.data ;
 
         setDetections(data.datos);
       } catch (error) {

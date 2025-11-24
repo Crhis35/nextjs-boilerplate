@@ -44,17 +44,50 @@ const darkBlue: MantineColorsTuple = [
 ];
 
 export const theme = createTheme({
+  primaryColor: 'primary',
   colors: {
-    'dark-blue': darkBlue,
+    primary: [
+      '#ebf2ff',
+      '#dbe5ff',
+      '#becfff',
+      '#97afff',
+      '#6f82ff',
+      '#4d57ff',
+      '#131246', // primary color at index 6
+      '#0f0e38',
+      '#0b0a2a',
+      '#07061c',
+    ],
+    secondary: [
+      '#e8e7fb',
+      '#d1cff7',
+      '#b9b6f3',
+      '#a29eef',
+      '#8a85eb',
+      '#736de7',
+      '#2320b5', // secondary color at index 6
+      '#1c1991',
+      '#15126d',
+      '#0e0c49',
+    ],
+    tertiary: [
+      '#f5f5f5',
+      '#e0e0e0',
+      '#cccccc',
+      '#b3b3b3',
+      '#999999',
+      '#808080',
+      '#191919', // tertiary color at index 6
+      '#141414',
+      '#0f0f0f',
+      '#0a0a0a',
+    ],
   },
-  primaryColor: 'dark-blue',
-  primaryShade: 6, // This corresponds to the 600 shade (#322dfe)
-  other: {
-    background: '#f8f9fa', // light mode bg
-    backgroundDark: '#0a0e1a', // dark mode bg
-    bgSecondary: '#111827',
-    bgTertiary: '#1a2234',
+  fontFamily: `'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif`,
+  headings: {
+    fontFamily: `'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif`,
   },
+  defaultRadius: 'md',
 });
 
 export default async function RootLayout({ children }: RootLayoutProps) {
