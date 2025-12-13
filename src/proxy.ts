@@ -7,7 +7,7 @@ const publicPages = ['/'];
 
 const intlMiddleware = createIntlMiddleware(routing);
 
-export default async function middleware(request: NextRequest) {
+export default async function proxy(request: NextRequest) {
   const locale = request.cookies.get('NEXT_LOCALE')?.value || defaultLocale;
   const pathname = request.nextUrl.pathname || '/';
 

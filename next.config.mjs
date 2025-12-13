@@ -85,7 +85,6 @@ const nextConfig = {
   // So you can use `pnpm typecheck` to check all type warns/errors at once.
   //
   typescript: { ignoreBuildErrors: false },
-  eslint: { ignoreDuringBuilds: false },
 };
 
 const withNextIntl = createNextIntlPlugin(
